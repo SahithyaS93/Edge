@@ -5,11 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { routes } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { CityLatLongComponent } from './city-lat-long/city-lat-long.component';
+import { CityLatLongComponent } from './components/city-lat-long/city-lat-long.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from  'ngx-ui-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,FormsModule,HttpClientModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() ,
+    NgxUiLoaderModule, NgxUiLoaderRouterModule.forRoot({ showForeground: false })
   ],
   providers: [],
   bootstrap: [AppComponent]

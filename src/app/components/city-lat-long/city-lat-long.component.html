@@ -11,14 +11,18 @@
                 <div class="md-form form-group row">
                     <label class="col-sm-2 col-form-label">City:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" (ngModelChange)="remove_coordinates()" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" placeholder="Enter the City">
+                        <input type="text" class="form-control" pattern="[a-zA-Z ]*" (ngModelChange)="remove_coordinates()" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" placeholder="Enter the City" #city_name="ngModel">
+                        <div [hidden]="city_name.valid || city_name.pristine"
+                           class="alert alert-danger">
+                           <div [hidden]="!city_name.hasError('pattern')"><i>Only alphabets are allowed</i></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 pull-right">
                 <div class="md-form form-group">
 
-                    <button type="submit" [disabled]="city==''" (click)="get_coordinates()" class="btn btn-primary">Submit</button>
+                    <button type="submit" [disabled]="city=='' || city_name.hasError('pattern')" (click)="get_coordinates()" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
