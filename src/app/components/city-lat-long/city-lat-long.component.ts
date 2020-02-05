@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { HttpserviceService } from '../../services/http-service.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,14 +9,12 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   templateUrl: './city-lat-long.component.html',
   styleUrls: ['./city-lat-long.component.css']
 })
-export class CityLatLongComponent implements OnInit {
+export class CityLatLongComponent{
 
   constructor(private HttpserviceService: HttpserviceService, private toastr: ToastrService, private ngxService: NgxUiLoaderService) { }
   city: any = "";
   coordinates: any = { lat: "", long: "" };
 
-  ngOnInit() {
-  }
   get_coordinates() {
     this.ngxService.start();
     this.HttpserviceService.serviceget(this.city)
@@ -39,6 +37,5 @@ export class CityLatLongComponent implements OnInit {
   }
   remove_coordinates() {
     this.coordinates = { lat: "", long: "" };
-
   }
 }
