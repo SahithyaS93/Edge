@@ -8,9 +8,9 @@ describe('CityLatLongComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CityLatLongComponent ]
+      declarations: [CityLatLongComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

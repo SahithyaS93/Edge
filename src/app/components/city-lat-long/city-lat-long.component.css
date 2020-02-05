@@ -1,0 +1,29 @@
+.head1 h4 {
+    margin: 4em 0 1.5em 0;
+    font-weight: 600;
+    font-family: fangsong;
+    font-variant: small-caps;
+    font-style: italic;
+    position: relative;
+    font-size: 26px;
+    line-height: 39px;
+    padding: 10px 62px 10px 10%;
+    text-align: center;
+    color: white;
+    box-shadow: inset 0 0 0 1px rgba(0, 3, 8, 0.4), inset 0 0 5px rgba(2, 16, 33, 0.5), inset -285px 0 35px #092d42;
+    border-radius: 20px;
+}
+
+.showMore {
+    margin-top: 52px;
+    padding: 19px 0px;
+    border-radius: 3px;
+    font-size: 14px;
+    box-shadow: inset 0 0 0 1px rgba(73, 82, 97, 0.46), inset 0 0 5px rgba(144, 151, 160, 0.58), inset -285px 0 35px #e3e8eb6b;
+    opacity: 1;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed
+}

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  api_url:'http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false'
+  api_url: '/api/geocode/json?sensor=false'
 };

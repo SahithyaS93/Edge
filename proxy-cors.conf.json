@@ -1,6 +1,9 @@
 {
     "/api/*": {
         "target": "http://www.datasciencetoolkit.org/maps",
-        "secure": false
+        "secure": false,
+        "headers": {
+            "Connection": "keep-alive"
+        }
     }
 }
