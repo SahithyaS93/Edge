@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 This project is for getting Longitude and Latitude of the cities.
 On submission,it hits the API and shows the city coordinate details if it is a valid city otherwise it will throw an error message.
+To avoid multiple API hit for the same city,used RxJS caching method. It will cache the API result data for the new request, and return the same if same request happens without server call.
 
 ## Development server
 
