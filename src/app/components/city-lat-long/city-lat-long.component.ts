@@ -29,7 +29,7 @@ export class CityLatLongComponent implements OnInit, OnDestroy {
   get controls() { return this.myCityForm.controls; }
   get_coordinates() {
     this.ngxService.start();
-    this.subscription_var = this.HttpserviceService.serviceget(this.myCityForm.value['city']).subscribe(
+    this.subscription_var = this.HttpserviceService.serviceget(this.myCityForm.value['city'].trim()).subscribe(
       (datas) => {
         datas = JSON.parse(datas);
         if (datas['status'] == "OK") {
