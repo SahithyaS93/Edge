@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError } from "rxjs";
-import { catchError, map } from 'rxjs/operators';
+import { throwError, Observable } from "rxjs";
+import { catchError, publishReplay, refCount, take } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,20 +10,26 @@ import { environment } from '../../environments/environment';
 export class HttpserviceService {
 
   constructor(private http: HttpClient) { }
-  public serviceget(city) {
+  cache_city = {};
+  public serviceget(city: string): Observable<any> {
+    if (this.cache_city[city]) {
+      return this.cache_city[city];
+    }
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.get(environment.api_url, {
+    this.cache_city[city] = this.http.get(environment.api_url, {
       params: {
         address: city
       }, responseType: 'text', headers
     })
       .pipe(
-        map(data => {
-          return data;
-        }),
-        catchError(error => {
-          return throwError(error);
+        publishReplay(),
+        refCount(),
+        take(1),
+        catchError(err => {
+          delete this.cache_city[city];
+          return throwError(err);
         })
       )
+    return this.cache_city[city];
   };
 }
