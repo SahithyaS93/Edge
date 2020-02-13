@@ -1,4 +1,5 @@
 .head1 h4 {
+    width: 100%;
     margin: 4em 0 1.5em 0;
     font-weight: 600;
     font-family: fangsong;
@@ -22,6 +23,11 @@
     box-shadow: inset 0 0 0 1px rgba(73, 82, 97, 0.46), inset 0 0 5px rgba(144, 151, 160, 0.58), inset -285px 0 35px #e3e8eb6b;
     opacity: 1;
     cursor: pointer;
+    text-align: center;
+}
+
+.card-title {
+    color: #2861e2;
 }
 
 button:disabled {

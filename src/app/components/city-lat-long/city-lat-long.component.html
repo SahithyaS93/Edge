@@ -1,58 +1,57 @@
-<div class="col-md-4 offset-md-4">
-    <div class="head1">
-        <h4><b>City coordinates finder</b></h4>
-    </div>
-</div>
-<div class="col-md-4 offset-md-4">
-    <form [formGroup]="myCityForm" (ngSubmit)="get_coordinates()">
-        <div class="form-row">
-            <div class="col-md-6">
-                <div class="md-form form-group row">
-                    <label class="col-sm-2 col-form-label" [ngStyle]="{'color':'white'}"><b>City:</b></label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" formControlName="city" name="city" placeholder="Enter the City" (keydown)="handleInput($event)">
-                        <div *ngIf="controls.city.errors && (controls.city.dirty || controls.city.touched)">
-                            <div *ngIf="controls.city.errors.pattern" class="alert alert-danger"><i>Only alphabets are
-                                    allowed</i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 pull-right">
-                <div class="md-form form-group">
-                    <button type="submit" [disabled]="!myCityForm.valid || myCityForm.value['city'].trim()==''" class="btn btn-primary">Submit</button>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="head1">
+                <h4><b>City coordinates finder</b></h4>
             </div>
         </div>
-    </form>
-
-    <div *ngIf="myCityForm.valid">
-        <div class="row showMore" *ngIf="coordinates.lat!=''">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div><i>
-                                        <h3>Latitude</h3>
-                                    </i></div>
-                                <h2 class="font-weight-bold mb-2">{{coordinates.lat}}</h2>
+        <div class="col-md-8 offset-md-2 d-flex justify-content-center align-items-center container">
+            <form [formGroup]="myCityForm" (ngSubmit)="get_coordinates()">
+                <div class="form-row">
+                    <div class="col-md-8">
+                        <div class="form-group row">
+                            <label class="col-sm-2 control-label" [ngStyle]="{'color':'white'}"><b>City: </b></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="city" name="city" placeholder="Enter the City" (keydown)="handleInput($event)">
+                                <div *ngIf="controls.city.errors && (controls.city.dirty || controls.city.touched)">
+                                    <div *ngIf="controls.city.errors.pattern" class="alert alert-danger"><i>Only
+                                            alphabets are
+                                            allowed</i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4 pull-right">
+                        <div class="form-group">
+                            <button type="submit" [disabled]="!myCityForm.valid || myCityForm.value['city'].trim()==''" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div><i>
-                                        <h3>Longitude</h3>
-                                    </i></div>
-                                <h2 class="font-weight-bold mb-2">{{coordinates.lng}}</h2>
-                            </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngIf="myCityForm.valid" class="col-md-8 offset-md-2">
+            <div class="row showMore" *ngIf="coordinates.lat!=''">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title"><i>
+                                    <h3>Latitude</h3>
+                                </i></p>
+
+                            <h2 class="font-weight-bold mb-2">{{coordinates.lat}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title"><i>
+                                    <h3>Longitude</h3>
+                                </i></p>
+                            <h2 class="font-weight-bold mb-2">{{coordinates.lng}}</h2>
                         </div>
                     </div>
                 </div>
